@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\ m\leq10^5$ 简单题，相当于求最后每个数字">
+  <meta name="description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个 A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\ m\l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opentrains1498训练实录">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/opentrains1498训练实录/index.html">
 <meta property="og:site_name" content="hdmmblz异闻录">
-<meta property="og:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\ m\leq10^5$ 简单题，相当于求最后每个数字">
+<meta property="og:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个 A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\ m\l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-22T09:24:28.276Z">
+<meta property="og:updated_time" content="2019-04-22T09:31:03.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="opentrains1498训练实录">
-<meta name="twitter:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\ m\leq10^5$ 简单题，相当于求最后每个数字">
+<meta name="twitter:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个 A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\ m\l">
 
 
 
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-04-22 13:53:28 / 修改时间：17:24:28" itemprop="dateCreated datePublished" datetime="2019-04-22T13:53:28+08:00">2019-04-22</time>
+              <time title="创建时间：2019-04-22 13:53:28 / 修改时间：17:31:03" itemprop="dateCreated datePublished" datetime="2019-04-22T13:53:28+08:00">2019-04-22</time>
             
 
             
@@ -444,6 +444,7 @@
 
       
         <h1 id="opentrains-1498训练记录"><a href="#opentrains-1498训练记录" class="headerlink" title="opentrains 1498训练记录"></a>opentrains 1498训练记录</h1><h2 id="Petrozavodsk-Winter-2017-Asia-Tsukuba-2016"><a href="#Petrozavodsk-Winter-2017-Asia-Tsukuba-2016" class="headerlink" title="Petrozavodsk Winter-2017. Asia-Tsukuba 2016"></a>Petrozavodsk Winter-2017. Asia-Tsukuba 2016</h2><p>2019.4.19打，2019.4.21补：</p>
+<p>自补，由于网上貌似没人写过题解，我就写一个</p>
 <h3 id="A-Rearranging-a-sequence"><a href="#A-Rearranging-a-sequence" class="headerlink" title="A.Rearranging a sequence"></a>A.Rearranging a sequence</h3><p>一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列</p>
 <p>$n\leq 2·10^5\ m\leq10^5$</p>
 <p>简单题，相当于求最后每个数字的位置，相当于一开始是空序列，先将$n-1$依此插入队首，然后进行那$m$次操作，那么对于每个数字$i$，考虑最后一次提拔他是在第$b_i$次，那么$[a_{b_i+1},a_{n+m}]$中有多少种不同的数字，在最终数列中就有多少个数字在$i$前面</p>
@@ -537,7 +538,7 @@
 <p>求一个圆和凸包的面积交</p>
 <p>1.求出所有圆和凸包的交点</p>
 <p>2.逆时针扫，看每段弧在凸包外还是凸包内，算面积，在凸包的这段折线上随便选一个点看看在圆内还是圆外即可，因为同一段折线一定同时在圆内/外</p>
-<p>3.特判一波两个图形互相完全覆盖的情况</p>
+<p>3.特判一波两个图形完全覆盖的情况</p>
 <p>想到这三个case</p>
 <p>ddd说很难写就是了</p>
 <p>复杂度$O(nlog^2A)$</p>
@@ -585,8 +586,6 @@
 <p>这题好有趣啊。</p>
 <p>快乐的折半搜索即可，甚至合并的时候相加就行。</p>
 <p>$O(n2^{n/2})$</p>
-<p>这就完了吗？就这么证明？</p>
-<p>当然不是！不然为什么要让下面的</p>
 
       
     </div>
