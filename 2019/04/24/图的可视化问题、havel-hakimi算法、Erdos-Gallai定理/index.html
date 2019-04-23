@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="待更">
+  <meta name="description" content="图的可视化问题、havel-hakimi算法、Erdős–Gallai定理简单无向图的可视化问题： 给定一个度数序列$D={a_1……a_n},a\subset Z^+，a_i$表示$i$号点在某个简单无向图中的度数，问是否有一个简单无向图满足这个给定的度数序列$D$，若有，构造一个，称其为$D$的可视化 $havel-hakimi$算法： 给出一个$D$并构造简单无向图的方法： 将$D(x$从大">
 <meta name="keywords" content="图论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从Sloth谈树的完美匹配">
-<meta property="og:url" content="http://yoursite.com/2019/04/22/从sloth谈树的完美匹配/index.html">
+<meta property="og:title" content="图的可视化问题、havel-hakimi算法、Erdős-Gallai定理">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/图的可视化问题、havel-hakimi算法、Erdos-Gallai定理/index.html">
 <meta property="og:site_name" content="hdmmblz异闻录">
-<meta property="og:description" content="待更">
+<meta property="og:description" content="图的可视化问题、havel-hakimi算法、Erdős–Gallai定理简单无向图的可视化问题： 给定一个度数序列$D={a_1……a_n},a\subset Z^+，a_i$表示$i$号点在某个简单无向图中的度数，问是否有一个简单无向图满足这个给定的度数序列$D$，若有，构造一个，称其为$D$的可视化 $havel-hakimi$算法： 给出一个$D$并构造简单无向图的方法： 将$D(x$从大">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-22T15:46:12.888Z">
+<meta property="og:updated_time" content="2019-04-23T16:42:24.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从Sloth谈树的完美匹配">
-<meta name="twitter:description" content="待更">
+<meta name="twitter:title" content="图的可视化问题、havel-hakimi算法、Erdős-Gallai定理">
+<meta name="twitter:description" content="图的可视化问题、havel-hakimi算法、Erdős–Gallai定理简单无向图的可视化问题： 给定一个度数序列$D={a_1……a_n},a\subset Z^+，a_i$表示$i$号点在某个简单无向图中的度数，问是否有一个简单无向图满足这个给定的度数序列$D$，若有，构造一个，称其为$D$的可视化 $havel-hakimi$算法： 给出一个$D$并构造简单无向图的方法： 将$D(x$从大">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/22/从sloth谈树的完美匹配/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/24/图的可视化问题、havel-hakimi算法、Erdos-Gallai定理/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>从Sloth谈树的完美匹配 | hdmmblz异闻录</title>
+  <title>图的可视化问题、havel-hakimi算法、Erdős-Gallai定理 | hdmmblz异闻录</title>
   
 
 
@@ -362,7 +362,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/从sloth谈树的完美匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/图的可视化问题、havel-hakimi算法、Erdos-Gallai定理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hdmmblz">
@@ -379,7 +379,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">从Sloth谈树的完美匹配
+          <h1 class="post-title" itemprop="name headline">图的可视化问题、havel-hakimi算法、Erdős-Gallai定理
 
               
             
@@ -405,7 +405,7 @@
                 
               
 
-              <time title="创建时间：2019-04-22 23:41:29 / 修改时间：23:46:12" itemprop="dateCreated datePublished" datetime="2019-04-22T23:41:29+08:00">2019-04-22</time>
+              <time title="创建时间：2019-04-24 00:38:09 / 修改时间：00:42:24" itemprop="dateCreated datePublished" datetime="2019-04-24T00:38:09+08:00">2019-04-24</time>
             
 
             
@@ -444,7 +444,43 @@
       
 
       
-        <p>待更</p>
+        <h2 id="图的可视化问题、havel-hakimi算法、Erdos–Gallai定理"><a href="#图的可视化问题、havel-hakimi算法、Erdos–Gallai定理" class="headerlink" title="图的可视化问题、havel-hakimi算法、Erdős–Gallai定理"></a>图的可视化问题、havel-hakimi算法、Erdős–Gallai定理</h2><p>简单无向图的可视化问题：</p>
+<p>给定一个度数序列$D={a_1……a_n},a\subset Z^+，a_i$表示$i$号点在某个简单无向图中的度数，问是否有一个简单无向图满足这个给定的度数序列$D$，若有，构造一个，称其为$D$的可视化</p>
+<p>$havel-hakimi$算法：</p>
+<p>给出一个$D$并构造简单无向图的方法：</p>
+<p>将$D(x$从大到小排序，使$a_{p_1}\ge……\ge a_{p_n}$，我们从$p_1$号点向$p_2,p_3……p_{a_{p_1}+1}$号点分别连边，然后$p_1$的度数限制已经满足，新的序列${sort{a_{p_2}-1……a_{p_{a_{p_1}+1}}-1……a_{p_n}}}$记为$D^{\ ‘}$,($sort{}$表示按照下标重新排回原来的顺序，虽然可视化的判定与序列元素的顺序无关，但这样更加直观)，继续对$D^{\ ‘}$进行上述操作，重复$n$次直到序列为空，若某次操作出现了非法（如某个元素变为负数），即为原序列不能可视化，证明见下。</p>
+<p>$havel-hakimi$定理：$D$能可视化(1)$\leftrightarrow D^{\ ‘}$能可视化(2)</p>
+<p>证明：(2)$\rightarrow$(1):若(2)成立，按照上文的方法给$1$号点连边，则(1)成立。</p>
+<p>(1)$\rightarrow$(2):若(1)成立，找到使(1)成立的任意一张简单无向图$G$，讨论如下：</p>
+<p>(i):将$G$的点的度数由大到小排序后，若$p_1$节点相邻的点分别为$p_2,p_3……p_{a_{p_1}+1}$，则将这个点和这些边删掉，易知(2)成立。</p>
+<p>(ii):若$\exist p_i\subset {p_2,p_3……p_{a_{p_1}+1}},edge(p_1,p_i) \ isn’t\ exist$ 则$\exist p_j,j&gt;a_{p_1}+1,edge(p_1,p_j)\ exist$</p>
+<p>则，$a_{p_i}\ge a_{p_j},\exist k,edge(k,p_j)\ isn’t\ exist,edge(k,p_i)\ exist$，给$G$加上$(p_j,k),(p_1,p_i)$两条边，删除$(p_i,k),(p_1,p_j)$两条边，成为新图$G^{\ ‘}$,新图$D$不变且满足讨论(i)，可证(2)成立</p>
+<p>使用这个递归算法即可构造一张合法的图，由$havel-hakimi$定理可知，若这个过程中出现某个$D^{(k)}$不能可视化，则原序列$D$不能可视化，第一次排序后使用链表和同值分块维护不增关系，算法复杂度$O(nlog_2n+m)$</p>
+<p>用数学方法表示图可视化的判定关系$Erdős–Gallai$定理：</p>
+<p>$D$能可视化(1)$\leftrightarrow$$\forall k\subset[1,n],\sum_{i=1}^{k}a_{p_i}\leq k(k-1)+\sum_{i=k+1}^{n}{min(a_{p_i},k)},\sum_{i=1}^{n}a_i mod2=0$(2)</p>
+<p>证明：</p>
+<p>(1)$\rightarrow$(2):如果(1)成立，那么考虑任意的度数前$k$大的点，考虑他们需要$\sum_{i=1}^{k}{a_{p_i}}$的度数贡献，考虑两个端点都在度数前$k$大的点集中的边,最多能贡献给度数前$k$大的点度数为$k(k-1)$,考虑只有一个端点在度数前$k$大的点的边，每条这样的边可以有$1$的度数贡献，枚举这条边的另一个端点计算可提供的最大贡献即为$\sum_{i=k+1}^{n}{min(a_{p_i},k)}$,可提供的最大贡献当然必须大于等于度数前$k$大的点需要的度数贡献，因此必要性即证</p>
+<p>(2)$\rightarrow$(1):考虑数学归纳法，设$s(D)=\sum_{i=1}^{n}{a_{p_i}}$,考虑对$s$进行归纳。显然对于$s(D)=0,2$，定理成立。那么我们假设已证对于$s(D)=2k$定理成立，欲证$\forall D,s(D)=2(k+1)$，定理也成立。为了方便，我们重新给序列标号，将$a_{p_i}$的下标记为$i$（早就该这么做了233）。设$t$为最小的满足$a_t&gt;a_{t+1}$的整数，若$D$中数字全部相同，则将$t$设为$n-1$。考虑将序列中$a_t,a_n$分别减$1$,显然不增的性质没有改变得到了新序列$D^{\ ‘}={a_1=a_2=……&gt;a_t-1\ge a_{t+1}……\ge a_n-1},s(D^{\ ‘})=2k,$</p>
+<p>下面来证明:$D$满足(2)$\rightarrow D^{\ ‘}$满足(2)</p>
+<p>对新序列的$n$个不等式分类讨论：</p>
+<p>$(a)$:$k\ge t$，对于新序列，不等式左边至少减去了$1$,不等式右边最多减去了$1$,因此原不等式依然成立</p>
+<p>$(b)$:$1\leq k\leq t-1,a_k\leq k-1$,$\sum_{i=1}^{k}a_k=ka_k\leq k(k-1)+\sum_{i=k+1}^{n}{min(D^{\ ‘}_i,k)}$</p>
+<p>$(c)$:$1\leq k\leq t-1,a_k=k$,先证$\sum_{i=k+2}^{n}a_i\ge 2$:若$k\leq n-3$,则显然成立，否则可知$t=n-1=a_k=n-2$</p>
+<p>此时$s(D)=(n-1)(n-2)+a_n\mod\ 2=0$,由于$(n-1)(n-2)\ mod \ 2=0$,$a_n\ge 2$,即证</p>
+<p>则：$\sum_{i=1}^{k}a_k=k^2-k+a_{k+1}\leq k^2-k+\sum_{i=k+1}^{n}{a_i}-2\leq k(k-1)+\sum_{i=k+1}^{n}{min(D^{\ ‘}_i,k)}$</p>
+<p>$(d)$:$1\leq k\leq t-1,a_k\ge k+1,a_n\ge k+1$,此时$a_t=a_k=k+1,a_n\ge k+1$,不等式右边与$k$取$min$,因此，不等式两边的值不变，不等式依然成立。</p>
+<p>$(e)$:$1\leq k\leq t-1,a_k\ge k+1,a_n&lt;k+1$，设$r$为最小的整数满足$a_{t+r+1}&lt;k+1$,可知$t+r+1\leq n,\sum_{i=t+r+1}^{n}a_i&gt;0$,由于$a_t-1=a_k-1\ge k$,因此不等式右边只会由于$D^{\ ‘}_n=a_n-1&lt;k$而减少$1$</p>
+<p>考虑反证法，若有原不等式组成立，但存在一条新不等式当$(e)$情况时不成立，则由于右边只会减少$1$,左边不变，因此此不等式对应的原不等式必有：</p>
+<p>$\sum_{i=1}^{k}a_i=ka_k=k(k-1)+\sum_{i=k+1}^{n}{min(a_i,k)}=k(k-1)+k(t+r-k)+\sum_{i=t+r+1}^{n}a_i=(t+r-1)k+\sum_{i=t+r+1}^{n}a_i$</p>
+<p>则有：$\sum_{i=1}^{k+1}a_i=(k+1)a_k=(k+1)(t+r-1)+\frac{k+1}{k}\sum_{i=t+r+1}^{n}a_i&gt;(k+1)k+(k+1)(t+r-k-1)+\sum_{i=t+r+1}^{n}a_i=(k+1)k+\sum_{i=k+2}^{n}a_i$</p>
+<p>第$k+1$条不等式不成立，与条件矛盾，因此不可能存在一条新不等式不成立。</p>
+<p>综上所述，$s(D)=2(k+1)$且不等式成立$\rightarrow$ $D^{\ ‘}$满足不等式$\rightarrow \exist G$满足$D^{\ ‘}$序列：</p>
+<p>若$edge(t,n)\ not\ in G$则在图中加入这条边，即可构造出满足$D$序列的简单无向图</p>
+<p>若$edge(t,n)\subset G$，则此时：先再加入一条$edge(t,n)$得到新图$G^{\ ‘}$,使其满足$D$,此时图中有两条$edge(t,n)$重边，下面进行调整：首先由不等式可得$a_t=a_1&lt;n$,由于$edge(t,n)$已经占据$t$的两个度数，因此真正与$t$相邻的点最多只有$n-2$个，不失普遍性，我们设$n&gt;3$,此时就可以用类似$havel-hakimi$算法类似的方法进行调整:$\exist k,edge(t,k) not\ in\ G^{\ ‘},a_k\ge a_n,\exist p\neq t,edge(p,k)\subset G^{\ ‘},edge(p,n)\ not\ in\ G^{\ ‘}$</p>
+<p>此时删去一条$edge(t,n)$,并加入$edge(t,k),edge(n,p)$,删去$edge(p,k)$,即可在保持度数矩阵不变的情况下将此图变为简单无向图，因此$\forall D,s(D)=2(k+1),D$能可视化，根据数学归纳法，充分性即证。</p>
+<p>$Erdős–Gallai$定理也给我们提供了一种新的构造合法图的思路，也就是按照上面的过程每次找出$t$,将$s(D)$减小，每一层在上一步的基础上进行调整递归进行构造，这种构造方法效率不如$havel-hakimi$算法，递归层数是$O(m)$</p>
+<p>例题：$codeforces\ 1091\ E$</p>
+<p>最困难的部分是对$Erdős–Gallai$定理充分性的证明，上文是目前最简单的一种证明，此外还有最初$Erdős–Gallai$较为冗长的证明以及$choudum$基于网络流的证明（网络流证明待补）</p>
 
       
     </div>
@@ -481,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/22/opentrains1498训练实录/" rel="next" title="opentrains1498训练实录">
-                <i class="fa fa-chevron-left"></i> opentrains1498训练实录
+              <a href="/2019/04/22/从sloth谈树的完美匹配/" rel="next" title="从Sloth谈树的完美匹配">
+                <i class="fa fa-chevron-left"></i> 从Sloth谈树的完美匹配
               </a>
             
           </div>
@@ -491,8 +527,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/24/图的可视化问题、havel-hakimi算法、Erdos-Gallai定理/" rel="prev" title="图的可视化问题、havel-hakimi算法、Erdős-Gallai定理">
-                图的可视化问题、havel-hakimi算法、Erdős-Gallai定理 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/24/opentrains-1474训练记录/" rel="prev" title="opentrains 1474训练记录">
+                opentrains 1474训练记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -537,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -603,6 +648,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图的可视化问题、havel-hakimi算法、Erdos–Gallai定理"><span class="nav-number">1.</span> <span class="nav-text">图的可视化问题、havel-hakimi算法、Erdős–Gallai定理</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
