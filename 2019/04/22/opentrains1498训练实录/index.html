@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个 A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\">
+  <meta name="description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个">
 <meta name="keywords" content="图论,训练记录,博弈论,构造">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opentrains1498训练实录">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/opentrains1498训练实录/index.html">
 <meta property="og:site_name" content="hdmmblz异闻录">
-<meta property="og:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个 A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\">
+<meta property="og:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-23T16:51:34.123Z">
+<meta property="og:updated_time" content="2019-04-23T16:57:32.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="opentrains1498训练实录">
-<meta name="twitter:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个 A.Rearranging a sequence一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列 $n\leq 2·10^5\">
+<meta name="twitter:description" content="opentrains 1498训练记录Petrozavodsk Winter-2017. Asia-Tsukuba 20162019.4.19打，2019.4.21补： 自补，由于网上貌似没人写过题解，我就写一个">
 
 
 
@@ -422,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-24 00:51:34" itemprop="dateModified" datetime="2019-04-24T00:51:34+08:00">2019-04-24</time>
+                <time title="修改时间：2019-04-24 00:57:32" itemprop="dateModified" datetime="2019-04-24T00:57:32+08:00">2019-04-24</time>
               
             
           </span>
@@ -456,9 +456,9 @@
       
 
       
-          <a id="more"></a> 
-<h1 id="opentrains-1498训练记录"><a href="#opentrains-1498训练记录" class="headerlink" title="opentrains 1498训练记录"></a>opentrains 1498训练记录</h1><h2 id="Petrozavodsk-Winter-2017-Asia-Tsukuba-2016"><a href="#Petrozavodsk-Winter-2017-Asia-Tsukuba-2016" class="headerlink" title="Petrozavodsk Winter-2017. Asia-Tsukuba 2016"></a>Petrozavodsk Winter-2017. Asia-Tsukuba 2016</h2><p>2019.4.19打，2019.4.21补：</p>
+        <h1 id="opentrains-1498训练记录"><a href="#opentrains-1498训练记录" class="headerlink" title="opentrains 1498训练记录"></a>opentrains 1498训练记录</h1><h2 id="Petrozavodsk-Winter-2017-Asia-Tsukuba-2016"><a href="#Petrozavodsk-Winter-2017-Asia-Tsukuba-2016" class="headerlink" title="Petrozavodsk Winter-2017. Asia-Tsukuba 2016"></a>Petrozavodsk Winter-2017. Asia-Tsukuba 2016</h2><p>2019.4.19打，2019.4.21补：</p>
 <p>自补，由于网上貌似没人写过题解，我就写一个</p>
+  <a id="more"></a> 
 <h3 id="A-Rearranging-a-sequence"><a href="#A-Rearranging-a-sequence" class="headerlink" title="A.Rearranging a sequence"></a>A.Rearranging a sequence</h3><p>一开始你有一个从$1-n$的数列，然后又$m$次操作，每次将$a_i$放到数列最前面，输出最后的数列</p>
 <p>$n\leq 2·10^5\ m\leq10^5$</p>
 <p>简单题，相当于求最后每个数字的位置，相当于一开始是空序列，先将$n-1$依此插入队首，然后进行那$m$次操作，那么对于每个数字$i$，考虑最后一次提拔他是在第$b_i$次，那么$[a_{b_i+1},a_{n+m}]$中有多少种不同的数字，在最终数列中就有多少个数字在$i$前面</p>
