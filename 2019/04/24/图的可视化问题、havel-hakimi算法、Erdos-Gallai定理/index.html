@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="hdmmblz异闻录">
 <meta property="og:description" content="图的可视化问题、havel-hakimi算法、Erdős–Gallai定理简单无向图的可视化问题： 给定一个度数序列$D={a_1……a_n},a\subset Z^+，a_i$表示$i$号点在某个简单无向图中的度数，问是否有一个简单无向图满足这个给定的度数序列$D$，若有，构造一个，称其为$D$的可视化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-23T16:59:16.076Z">
+<meta property="og:updated_time" content="2019-04-24T00:47:42.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图的可视化问题、havel-hakimi算法、Erdős-Gallai定理">
 <meta name="twitter:description" content="图的可视化问题、havel-hakimi算法、Erdős–Gallai定理简单无向图的可视化问题： 给定一个度数序列$D={a_1……a_n},a\subset Z^+，a_i$表示$i$号点在某个简单无向图中的度数，问是否有一个简单无向图满足这个给定的度数序列$D$，若有，构造一个，称其为$D$的可视化">
@@ -405,7 +405,7 @@
                 
               
 
-              <time title="创建时间：2019-04-24 00:38:09 / 修改时间：00:59:16" itemprop="dateCreated datePublished" datetime="2019-04-24T00:38:09+08:00">2019-04-24</time>
+              <time title="创建时间：2019-04-24 00:38:09 / 修改时间：08:47:42" itemprop="dateCreated datePublished" datetime="2019-04-24T00:38:09+08:00">2019-04-24</time>
             
 
             
@@ -454,9 +454,9 @@
 <p>证明：(2)$\rightarrow$(1):若(2)成立，按照上文的方法给$1$号点连边，则(1)成立。</p>
 <p>(1)$\rightarrow$(2):若(1)成立，找到使(1)成立的任意一张简单无向图$G$，讨论如下：</p>
 <p>(i):将$G$的点的度数由大到小排序后，若$p_1$节点相邻的点分别为$p_2,p_3……p_{a_{p_1}+1}$，则将这个点和这些边删掉，易知(2)成立。</p>
-<p>(ii):若$\exist p_i\subset {p_2,p_3……p_{a_{p_1}+1}},edge(p_1,p_i) \ isn’t\ exist$ 则$\exist p_j,j&gt;a_{p_1}+1,edge(p_1,p_j)\ exist$</p>
-<p>则，$a_{p_i}\ge a_{p_j},\exist k,edge(k,p_j)\ isn’t\ exist,edge(k,p_i)\ exist$，给$G$加上$(p_j,k),(p_1,p_i)$两条边，删除$(p_i,k),(p_1,p_j)$两条边，成为新图$G^{\ ‘}$,新图$D$不变且满足讨论(i)，可证(2)成立</p>
-<p>使用这个递归算法即可构造一张合法的图，由$havel-hakimi$定理可知，若这个过程中出现某个$D^{(k)}$不能可视化，则原序列$D$不能可视化，第一次排序后使用链表和同值分块维护不增关系，算法复杂度$O(nlog_2n+m)$</p>
+<p>(ii):若$\exists p_i\subset {p_2,p_3……p_{a_{p_1}+1}},edge(p_1,p_i) \ isn’t\ exist$ 则$\exists p_j,j&gt;a_{p_1}+1,edge(p_1,p_j)\ exists$</p>
+<p>则，$a_{p_i}\ge a_{p_j},\exists k,edge(k,p_j)\ isn’t\ exist,edge(k,p_i)\ exist$，给$G$加上$(p_j,k),(p_1,p_i)$两条边，删除$(p_i,k),(p_1,p_j)$两条边，成为新图$G^{\ ‘}$,新图$D$不变且满足讨论(i)，可证(2)成立</p>
+<p>使用这个递归算法即可构造一张合法的图，由$havel-hakimi​$定理可知，若这个过程中出现某个$D^{(k)}​$不能可视化，则原序列$D​$不能可视化，第一次排序后使用链表和同值分块维护不增关系，算法复杂度$O(nlog_2n+m)​$</p>
 <p>用数学方法表示图可视化的判定关系$Erdős–Gallai$定理：</p>
 <p>$D$能可视化(1)$\leftrightarrow$$\forall k\subset[1,n],\sum_{i=1}^{k}a_{p_i}\leq k(k-1)+\sum_{i=k+1}^{n}{min(a_{p_i},k)},\sum_{i=1}^{n}a_i mod2=0$(2)</p>
 <p>证明：</p>
@@ -475,9 +475,9 @@
 <p>$\sum_{i=1}^{k}a_i=ka_k=k(k-1)+\sum_{i=k+1}^{n}{min(a_i,k)}=k(k-1)+k(t+r-k)+\sum_{i=t+r+1}^{n}a_i=(t+r-1)k+\sum_{i=t+r+1}^{n}a_i$</p>
 <p>则有：$\sum_{i=1}^{k+1}a_i=(k+1)a_k=(k+1)(t+r-1)+\frac{k+1}{k}\sum_{i=t+r+1}^{n}a_i&gt;(k+1)k+(k+1)(t+r-k-1)+\sum_{i=t+r+1}^{n}a_i=(k+1)k+\sum_{i=k+2}^{n}a_i$</p>
 <p>第$k+1$条不等式不成立，与条件矛盾，因此不可能存在一条新不等式不成立。</p>
-<p>综上所述，$s(D)=2(k+1)$且不等式成立$\rightarrow$ $D^{\ ‘}$满足不等式$\rightarrow \exist G$满足$D^{\ ‘}$序列：</p>
+<p>综上所述，$s(D)=2(k+1)$且不等式成立$\rightarrow$ $D^{\ ‘}$满足不等式$\rightarrow \exists G$满足$D^{\ ‘}$序列：</p>
 <p>若$edge(t,n)\ not\ in G$则在图中加入这条边，即可构造出满足$D$序列的简单无向图</p>
-<p>若$edge(t,n)\subset G$，则此时：先再加入一条$edge(t,n)$得到新图$G^{\ ‘}$,使其满足$D$,此时图中有两条$edge(t,n)$重边，下面进行调整：首先由不等式可得$a_t=a_1&lt;n$,由于$edge(t,n)$已经占据$t$的两个度数，因此真正与$t$相邻的点最多只有$n-2$个，不失普遍性，我们设$n&gt;3$,此时就可以用类似$havel-hakimi$算法类似的方法进行调整:$\exist k,edge(t,k) not\ in\ G^{\ ‘},a_k\ge a_n,\exist p\neq t,edge(p,k)\subset G^{\ ‘},edge(p,n)\ not\ in\ G^{\ ‘}$</p>
+<p>若$edge(t,n)\subset G$，则此时：先再加入一条$edge(t,n)$得到新图$G^{\ ‘}$,使其满足$D$,此时图中有两条$edge(t,n)$重边，下面进行调整：首先由不等式可得$a_t=a_1&lt;n$,由于$edge(t,n)$已经占据$t$的两个度数，因此真正与$t$相邻的点最多只有$n-2$个，不失普遍性，我们设$n&gt;3$,此时就可以用类似$havel-hakimi$算法类似的方法进行调整:$\exists k,edge(t,k) not\ in\ G^{\ ‘},a_k\ge a_n,\exists p\neq t,edge(p,k)\subset G^{\ ‘},edge(p,n)\ not\ in\ G^{\ ‘}$</p>
 <p>此时删去一条$edge(t,n)$,并加入$edge(t,k),edge(n,p)$,删去$edge(p,k)$,即可在保持度数矩阵不变的情况下将此图变为简单无向图，因此$\forall D,s(D)=2(k+1),D$能可视化，根据数学归纳法，充分性即证。</p>
 <p>$Erdős–Gallai$定理也给我们提供了一种新的构造合法图的思路，也就是按照上面的过程每次找出$t$,将$s(D)$减小，每一层在上一步的基础上进行调整递归进行构造，这种构造方法效率不如$havel-hakimi$算法，递归层数是$O(m)$</p>
 <p>例题：$codeforces\ 1091\ E$</p>
