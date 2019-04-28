@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="hdmmblz异闻录">
 <meta property="og:description" content="最近好多题没补，慢慢来吧。包括一些开火车和一些$atcoder$，有一些题队友@yangdavid已经写过了，我就不用再浪费时间了。由于不是训练实录，有些水题就不写了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-28T13:47:38.975Z">
+<meta property="og:updated_time" content="2019-04-28T13:51:42.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="补题、杂题N合1">
 <meta name="twitter:description" content="最近好多题没补，慢慢来吧。包括一些开火车和一些$atcoder$，有一些题队友@yangdavid已经写过了，我就不用再浪费时间了。由于不是训练实录，有些水题就不写了">
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-04-28 20:07:51 / 修改时间：21:47:38" itemprop="dateCreated datePublished" datetime="2019-04-28T20:07:51+08:00">2019-04-28</time>
+              <time title="创建时间：2019-04-28 20:07:51 / 修改时间：21:51:42" itemprop="dateCreated datePublished" datetime="2019-04-28T20:07:51+08:00">2019-04-28</time>
             
 
             
@@ -449,8 +449,8 @@
 <p>solution：</p>
 <p>首先，我们可以确定一个$p\ge1$,使得存在一种方式使得$f_n&lt;p$</p>
 <p>这样的话，说明$f_n$至少是$p-1$先把这部分加上去</p>
-<p>考虑，$P(i)=P(f_n=i)=\frac{A^n_{2^{i+1}}}{2^{(i+1)n}}-\frac{A^n_{2^{i}}}{2^{in}}$，设$b_i=\frac{A^n_{2^{i}}}{2^{in}}$<br>$$<br>E(f_n)=contribution(p-1)+\sum_{i=p}^{\infin}i(b_{i+1}-b_i)=contribution(p-1)-ib_i-\sum_{i={p+1}}^{\infin}b_i<br>$$<br>考虑如何计算$\sum_{i={p+1}}^{\infin}b_i$，设$x_i=2^i$<br>$$<br>b_i=\frac{\prod_{j=0}^{n-1}x_i-j}{x_i^n}=F(\frac{1}{x_i})<br>$$<br>其中$F(x)=\sum_{i=0}^na_ix^i$是一个$n$次多项式</p>
-<p>对于每一个$i$，$B_i=\sum_{j=p+1}^{\infin}a_i\frac{1}{x_j^i}$都是一个无穷等比数列求和形式，将每个$B_i$都求出来，则$\sum_{i={p+1}}^{\infin}b_i=\sum_{i=0}^nB_i$。由于$n$有限，因此是对的</p>
+<p>考虑，$P(i)=P(f_n=i)=\frac{A^n_{2^{i+1}}}{2^{(i+1)n}}-\frac{A^n_{2^{i}}}{2^{in}}$，设$b_i=\frac{A^n_{2^{i}}}{2^{in}}$<br>$$<br>E(f_n)=contribution(p-1)+\sum_{i=p}^{\infty}i(b_{i+1}-b_i)=contribution(p-1)-ib_i-\sum_{i={p+1}}^{\infty}b_i<br>$$<br>考虑如何计算$\sum_{i={p+1}}^{\infty}b_i$，设$x_i=2^i$<br>$$<br>b_i=\frac{\prod_{j=0}^{n-1}x_i-j}{x_i^n}=F(\frac{1}{x_i})<br>$$<br>其中$F(x)=\sum_{i=0}^na_ix^i$是一个$n$次多项式</p>
+<p>对于每一个$i$，$B_i=\sum_{j=p+1}^{\infty}a_i\frac{1}{x_j^i}$都是一个无穷等比数列求和形式，将每个$B_i$都求出来，则$\sum_{i={p+1}}^{\infty}b_i=\sum_{i=0}^nB_i$。由于$n$有限，因此是对的</p>
 <p>启示：当遇到难以处理的数列求和时，可考虑把数列看成多项式形式，对每一项分别求和</p>
 
       
