@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前置知识：后缀树，后缀自动机 问题导入：有一个长度为$5·10^5$的字符串，对这个字符串建立后缀树，后缀树一条边的权值为这条边所代表的字符串中本质不同的子串个数，求这个后缀树边的权值和 来源：$opentrains1464\ Petrozavodsk\ Summer-2015.\ Moscow\ IPT\ Contest\ H.Sasha\ and\ swag\ strings$ 今天我们要介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="摇摆的字符串，压缩的自动机——论压缩后缀自动机以及后缀图&#x2F;后缀树的关联与性质">
+<meta property="og:url" content="http://yoursite.com/2019/05/04/摇摆的字符串，压缩的自动机——论压缩后缀自动机以及后缀图-后缀树的关联与性质/index.html">
+<meta property="og:site_name" content="hdmmblz异闻录">
+<meta property="og:description" content="前置知识：后缀树，后缀自动机 问题导入：有一个长度为$5·10^5$的字符串，对这个字符串建立后缀树，后缀树一条边的权值为这条边所代表的字符串中本质不同的子串个数，求这个后缀树边的权值和 来源：$opentrains1464\ Petrozavodsk\ Summer-2015.\ Moscow\ IPT\ Contest\ H.Sasha\ and\ swag\ strings$ 今天我们要介绍">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-03T18:23:07.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="摇摆的字符串，压缩的自动机——论压缩后缀自动机以及后缀图&#x2F;后缀树的关联与性质">
+<meta name="twitter:description" content="前置知识：后缀树，后缀自动机 问题导入：有一个长度为$5·10^5$的字符串，对这个字符串建立后缀树，后缀树一条边的权值为这条边所代表的字符串中本质不同的子串个数，求这个后缀树边的权值和 来源：$opentrains1464\ Petrozavodsk\ Summer-2015.\ Moscow\ IPT\ Contest\ H.Sasha\ and\ swag\ strings$ 今天我们要介绍">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/04/摇摆的字符串，压缩的自动机——论压缩后缀自动机以及后缀图-后缀树的关联与性质/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>摇摆的字符串，压缩的自动机——论压缩后缀自动机以及后缀图/后缀树的关联与性质 | hdmmblz异闻录</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hdmmblz异闻录</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">qwq</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/摇摆的字符串，压缩的自动机——论压缩后缀自动机以及后缀图-后缀树的关联与性质/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hdmmblz">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hdmmblz异闻录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">摇摆的字符串，压缩的自动机——论压缩后缀自动机以及后缀图/后缀树的关联与性质
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-04 00:39:25 / 修改时间：02:23:07" itemprop="dateCreated datePublished" datetime="2019-05-04T00:39:25+08:00">2019-05-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前置知识：后缀树，后缀自动机</p>
+<p>问题导入：有一个长度为$5·10^5$的字符串，对这个字符串建立后缀树，后缀树一条边的权值为这条边所代表的字符串中本质不同的子串个数，求这个后缀树边的权值和</p>
+<p>来源：$opentrains1464\ Petrozavodsk\ Summer-2015.\ Moscow\ IPT\ Contest\ H.Sasha\ and\ swag\ strings$</p>
+<p>今天我们要介绍：压缩后缀自动机$CSAM$:$compacted\ suffix\ automaton$</p>
+<p>网上关于压缩后缀自动机的资料极少，本文大部分来自作者思考的结果，发现了很多有意思的小性质。</p>
+  <a id="more"></a> 
+<h2 id="后缀自动机的fail树"><a href="#后缀自动机的fail树" class="headerlink" title="后缀自动机的fail树"></a>后缀自动机的fail树</h2><p>一个串后缀自动机的$fail$树是这个串反串的后缀树。</p>
+<p>证明：在构造后缀自动机时，我们是插入他的前缀，并取$right$集合来合并子串，等价于其反串的后缀树</p>
+<h2 id="后缀自动机的后缀图以及其与后缀树的联系"><a href="#后缀自动机的后缀图以及其与后缀树的联系" class="headerlink" title="后缀自动机的后缀图以及其与后缀树的联系"></a>后缀自动机的后缀图以及其与后缀树的联系</h2><p>后缀图即为后缀自动机中转移边组成的$DAG$，这个图与$fail$树不一样，后缀图蕴含了原串的后缀树</p>
+<p>说明：从下文开始，为了引用方便我们会将性质进行编号</p>
+<p>我们考虑后缀图，它显然有以下性质：</p>
+<p>$（1）$.从空节点开始，在后缀图上可以得到的任意一条路径，都是原串的一个子串</p>
+<p>我们来考虑原串的后缀树，后缀树是将所有后缀插入$trie$树得到的。但我们可以使用一个等价的描述：</p>
+<p>$(2).$后缀树是将串的所有子串插入$trie$树得到的。</p>
+<p>将$(1)(2)$性质进行对比，不难发现：在后缀树中，将一些完全相同的子树的根节点进行合并，就得到了后缀图。</p>
+<p>接着我们可以得到如下性质：</p>
+<p>$(3)$.从空节点出发的任意两条不同的路径，所经过的字符拼接形成的字符串不同（今后我们将这个字符串直接称为“这条路径代表的字符串$f(S)$”）</p>
+<p>这一点可以通过数学归纳法证明：考虑这两条不同路径首次分道扬镳的地方，一定是经过了不同的字母转移</p>
+<p>$(4)$.后缀树上每条从空节点开始的路径代表的字符串不同（$trie$树性质），且这些路径和后缀图中的那些路径是一一对应的。</p>
+<p>对于性质$(4)$.我们考虑刚才已经发现的，后缀图是由后缀树中相同的子树合并而成，这个性质就十分显然了。</p>
+<p>$(5)$.在后缀图上，对任意两点$u,v$,若存在两条路径$S1,S2$都是从$u$到$v$，那么$f(S1)$和$f(S2)$中必然一个是另一个的后缀。</p>
+<p>证明：考虑从空节点到$v$的所有路径代表的字符串，他们交汇于$v$说明他们拥有同一个$right$集合，也就是说他们中每两个都是其中一个是另一个后缀的关系，那么$f(S1),f(S2)$从$u$到$v$，则是这些后缀中某个后缀的后缀，自然也满足一个是另一个后缀的关系。</p>
+<h2 id="压缩后缀自动机"><a href="#压缩后缀自动机" class="headerlink" title="压缩后缀自动机"></a>压缩后缀自动机</h2><p>严格来讲是压缩后缀图。</p>
+<p>压缩的思路是怎么来的呢？</p>
+<p>定义：对于后缀图中的点，若这个点出度为$1$称为坏点，否则称为好点</p>
+<p>后缀路径：后缀图中一条开始于好点，终止于好点，中间经过的全是坏点的路径叫做后缀路径。</p>
+<p>$(6)$.极其重要的性质：后缀图中的每个后缀路径代表的字符串一定是后缀树中某条或某些边上的字符串。</p>
+<p>证明：我们从空节点开始，在后缀图和后缀树上同时使用相同的字母转移来行走。</p>
+<p>走到后缀树的某个节点时，这时走在后缀图上的位置必然是一个好点(否则只有一条出边，这会在后缀树上被缩起来)</p>
+<p>走在后缀树的某条后缀边内部时，这时走在后缀图上的位置必然是一个坏点（否则多条出边在后缀树上无法合并）</p>
+<p>这样结合性质(4)就证明了,每条后缀路径都对应了一些后缀树上的边。</p>
+<p>使用上面的”树图同步行走思想”，我们发现走过某条后缀树边的过程一定是走过某条后缀路径的过程。这样的话，我们就可以给每一条后缀树边安排一个对应的后缀路径。这是一个一对多的映射，每条后缀路径可能对应多条后缀树边但一条后缀树边只对应一条后缀路径，但每条后缀路径和后缀树边都一定有对应对象（考虑同步行走的过程）</p>
+<p>$(7)$.一个后缀路径对应的后缀树边的条数，即为：从空节点经过后缀路径走到后缀路径终点的方案数。</p>
+<p>证明：每一条从空节点经过后缀路径走到后缀路径终点的方案，在”树图同步行走”中都对应着一条从后缀树根走到某个后缀树边终点的过程，而在后缀树中，由于树的性质，不同的行走方案一定走向的是不同的终点，因此行走方案数等于对应的后缀树边的数量。</p>
+<p>$(8)$.对于一个后缀图中的节点，从空节点走到这个节点的路径数等于这个节点代表的子串的数量，即普通后缀自动机中的$len[x]-len[link[x]]$</p>
+<p>证明：我们考虑，所有从空节点走到这个节点的路径代表的字符串都是这个节点代表的子串其中的一个，这些子串两两不同（长度都不相同），因此结论成立。</p>
+<p>$(9)$.由于一条后缀路径中间经过的都是坏点（一条出边），因此一个后缀路径对应的后缀树边的条数等于从空节点经过后缀路径走到后缀路径终点的方案数等于从空节点走到后缀路径起点的方案数</p>
+<h2 id="Swag-Strings"><a href="#Swag-Strings" class="headerlink" title="Swag Strings"></a>Swag Strings</h2><p>现在我们可以回归那到题目，设$u_S,v_S$分别为路径$S$的起点和终点，设$g(S)$为字符串$S$包含的本质不同子串的数量，则答案即为：<br>$$<br>ans=\sum_{S\in{后缀路径}}(len[u_S]-len[link[u_S]])g(f(S))<br>$$<br>我们枚举后缀路径计算即可。</p>
+<p>$(10).$设原后缀图的边数$m$，则后缀路径数量小于等于$m$</p>
+<p>证明：我们把后缀路径分为两类：</p>
+<p>$(a)$:一条边，起点终点都是好点，这类边的数量等于$x=（起点终点都是好点的边的数量）$</p>
+<p>$(b)$:后缀路径上经过坏点，我们考虑这条路径上的第一条边，这是一个起点为好点终点为坏点的边，由于坏点只有一个出边，那么实际上路径就没得选，只能一直往坏点唯一的出边走直到碰到好点。因此这类边的数量等于$y=(起点好点终点坏点的边的数量)$</p>
+<p>显然$x+y\leq m$</p>
+<p>因此枚举后缀路径复杂度是没有问题的。</p>
+<p>我们的压缩后缀图的意思便是：将所有出度为$1$的点的出边对应字符串合并进它的所有入边。然后删掉这个点。并将这个点的所有入边接进这个点的唯一出点。这样，新的压缩后缀图的每一条边都是一个原图的后缀路径</p>
+<p>后缀路径数量复杂度没有问题，但计算$g(f(S))$可不能暴力计算，$\sum_{S\in{后缀路径}}|f(S)|$是平方级别的。</p>
+<p>但是。。。。。。</p>
+<p>还记得我们的性质$(5)$吗，它就是我们的杀手锏</p>
+<p>我们考虑枚举$v_S$,对$v_S$相同的后缀路径在一起计算，由性质$(5)$可得，这些路径按照从短到长排序，短路径一定是长路径的后缀。</p>
+<p>因此我们对每个$v_S$找到其中长度最长的一个$S_{max}$,我们只需求出$S_{max}$的每个后缀的$g$值，就可以知道所有这一类后缀路径的$g$值。</p>
+<p>这只需要对$S_{max}$的反串跑后缀自动机，就可以轻易统计出$S_{max}$每个后缀的$g$值</p>
+<p>时间复杂度$O(\sum_{u\in{压缩后缀图节点}}|压缩后缀图中以u为终点的边S中最长的f(S)|)$</p>
+<p>考虑压缩时每次将坏点删除的操作，实际上是将坏点唯一出边对应的字符串接到这个坏点唯一出点上，因此原后缀图上每一个字母最终最多只会作用于一个节点上、被容纳进以该点为终点的后缀路径中的最长的一个上来为复杂度做贡献，因此复杂度是小于$O(m)$的。</p>
+<h2 id="小总结："><a href="#小总结：" class="headerlink" title="小总结："></a>小总结：</h2><p>$trie$树$-压缩-&gt;$后缀树$-最小化-&gt;$压缩后缀图</p>
+<p>$trie$树$-最小化-&gt;$后缀图$-压缩-&gt;$压缩后缀图</p>
+<p>最小化：即$DFA$最小化，通过类似同构点的合并的操作来简化图的转移，在这里，最小化指的就是将树的某些完全相同的子树的根节点合并</p>
+<p>压缩：将出度为$1$的点删除，将它的唯一出边信息合并于入边信息，并将它的所有入边重定向到它的出点上。</p>
+<h2 id="关于本题其他的方法："><a href="#关于本题其他的方法：" class="headerlink" title="关于本题其他的方法："></a>关于本题其他的方法：</h2><p>每条后缀树边相当于串中的一个子串，用反串的后缀自动机建出后缀树，便相当于询问串中$n$个子串的价值和。这在$2018$年国家集训队论文集中陈江伦的论文中被详细讨论，是使用$LCT$的某些高级技巧做到$nlog^2n$,有空的话要学习一下。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/opentrains1464-Petrozavodsk-Summer-2015-Moscow-IPT-Contest单人训练记录/" rel="next" title="opentrains1464 Petrozavodsk Summer-2015. Moscow IPT Contest单人训练记录">
+                <i class="fa fa-chevron-left"></i> opentrains1464 Petrozavodsk Summer-2015. Moscow IPT Contest单人训练记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">hdmmblz</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#后缀自动机的fail树"><span class="nav-number">1.</span> <span class="nav-text">后缀自动机的fail树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后缀自动机的后缀图以及其与后缀树的联系"><span class="nav-number">2.</span> <span class="nav-text">后缀自动机的后缀图以及其与后缀树的联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩后缀自动机"><span class="nav-number">3.</span> <span class="nav-text">压缩后缀自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swag-Strings"><span class="nav-number">4.</span> <span class="nav-text">Swag Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小总结："><span class="nav-number">5.</span> <span class="nav-text">小总结：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于本题其他的方法："><span class="nav-number">6.</span> <span class="nav-text">关于本题其他的方法：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-hdmmblz"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hdmmblz</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
