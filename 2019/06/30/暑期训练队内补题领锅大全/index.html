@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="hdmmblz异闻录">
 <meta property="og:description" content="这个暑假注定是忙碌的一夏，渡渡鸟幼儿园采用分锅补题制度力求大幅度提升补题效率，基本上由$yangdavid$撰写训练实录总览，三人分别在各自博客上撰写所补题目的题解">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-30T13:20:59.911Z">
+<meta property="og:updated_time" content="2019-07-01T02:35:36.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="暑期训练队内补题领锅大全">
 <meta name="twitter:description" content="这个暑假注定是忙碌的一夏，渡渡鸟幼儿园采用分锅补题制度力求大幅度提升补题效率，基本上由$yangdavid$撰写训练实录总览，三人分别在各自博客上撰写所补题目的题解">
@@ -404,12 +404,24 @@
                 
               
 
-              <time title="创建时间：2019-06-30 20:21:53 / 修改时间：21:20:59" itemprop="dateCreated datePublished" datetime="2019-06-30T20:21:53+08:00">2019-06-30</time>
+              <time title="创建时间：2019-06-30 20:21:53" itemprop="dateCreated datePublished" datetime="2019-06-30T20:21:53+08:00">2019-06-30</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-01 10:35:36" itemprop="dateModified" datetime="2019-07-01T10:35:36+08:00">2019-07-01</time>
               
             
           </span>
@@ -467,13 +479,13 @@
 <p>显然上述四个值容易维护。下面我们来诠释所需的两种操作如何进行。</p>
 <p><strong>1.询问如果把一个新区间加入当前区间集合，则这个区间集合是否仍然合法</strong>：</p>
 <p>设当前加入的区间编号$x$</p>
-<p>a.找到当前集合中关于编号$x$的$upper_bound\ y$的上一个区间$y_0$,则根据之前描述的贪心方案可知$x$区间对应的点为$s_x=max(s_{y_0},l_x)$</p>
+<p>a.找到当前集合中关于编号$x$的$upper$_$bound\ y$的上一个区间$y_0$,则根据之前描述的贪心方案可知$x$区间对应的点为$s_x=max(s_{y_0},l_x)$</p>
 <p>b.在$[y,n]$中找到集合中编号最小的后退余地为$0$的区间$z$，若没有则需使用虚拟节点特殊处理一下。</p>
 <p>关于实现，这里找的话，需要用一些比平常有一点点麻烦的技巧（先左后右，找右则全左），保证复杂度一个$log$</p>
 <p>c.如果$v_z&gt;s_x-p_{y_0}$，则表明加入集合后该集合仍合法，否则不合法。这个式子的推导较容易</p>
 <p><strong>2.把一个区间加入当前合法区间集合，保证加入后新区间集合仍合法：</strong></p>
 <p>接上面的步骤：</p>
-<p>d.找到$[y,z]$中编号最小的$v&gt;s_x-p_{y_0}$的节点$h$,由于$z$满足条件，因此必然可以找到，然后我们就要将$x$插入了，相当于$[y,n]$的位次$p$整体后移$1$，$[y,z]$的选点位置$s$整体后移$1$,线段树区间修改即可。</p>
+<p>d.找到$[y,z]$中编号最小的$v&gt;s_x-p_{y_0}$的节点$h$,由于$z$满足条件，因此必然可以找到，然后我们就要将$x$插入了，相当于$[y,n]$的位次$p$整体后移$1$，$[y,h]$的选点位置$s$整体后移$1$,线段树区间修改即可。</p>
 <p>冗长的代码：</p>
 <p>【代码折叠以及本场E,6311的DH明天更】</p>
 
@@ -515,6 +527,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/06/未解决课题：关于异或意义下的排序不等式/" rel="prev" title="未解决课题：关于异或意义下的排序不等式">
+                未解决课题：关于异或意义下的排序不等式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -583,7 +599,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

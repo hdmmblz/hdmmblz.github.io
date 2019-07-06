@@ -96,13 +96,17 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="hdmmblz异闻录">
-<meta property="og:url" content="http://yoursite.com/tags/训练记录/index.html">
+  <meta name="description" content="2019.7.6奇思妙想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="未解决课题：关于异或意义下的排序不等式">
+<meta property="og:url" content="http://yoursite.com/2019/07/06/未解决课题：关于异或意义下的排序不等式/index.html">
 <meta property="og:site_name" content="hdmmblz异闻录">
+<meta property="og:description" content="2019.7.6奇思妙想">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-06T13:36:19.236Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hdmmblz异闻录">
+<meta name="twitter:title" content="未解决课题：关于异或意义下的排序不等式">
+<meta name="twitter:description" content="2019.7.6奇思妙想">
 
 
 
@@ -110,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/训练记录/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/06/未解决课题：关于异或意义下的排序不等式/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>标签: 训练记录 | hdmmblz异闻录</title>
+  <title>未解决课题：关于异或意义下的排序不等式 | hdmmblz异闻录</title>
   
 
 
@@ -168,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,7 +248,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -337,86 +341,187 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>训练记录<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/未解决课题：关于异或意义下的排序不等式/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hdmmblz">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hdmmblz异闻录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/04/22/opentrains1498训练实录/" itemprop="url">
-            
-              <span itemprop="name">opentrains1498训练实录</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">未解决课题：关于异或意义下的排序不等式
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T13:53:28+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-06 21:12:29 / 修改时间：21:36:19" itemprop="dateCreated datePublished" datetime="2019-07-06T21:12:29+08:00">2019-07-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>2019.7.6奇思妙想  </p>
+<a id="more"></a> 
+<p>问题背景：我们都知道乘法下的排序不等式，那么异或意义下的排序不等式又是怎么样的呢？</p>
+<p>问题1：给定两个$n$项数列$A,B$，可对这两个数列任意排列，求$\sum_{i=1}^na_i\oplus b_i$最大/最小值，其中$\oplus$代表按位异或</p>
+<p>初始想法：既然这个问题是根据传统的排序不等式想到的，那么我们不妨考虑像排序不等式一样，试图对数字定义全序关系$&lt;$，并使这个关系满足“相邻交换法”，使得这个问题可以直接排序解决。</p>
+<p>解决过程（未解决）：</p>
+<p>尝试1：问题等价于重排$B$,顺着“相邻交换法”的思想考虑，什么条件下$a_i\oplus b_i+a_j\oplus b_j&lt;a_i\oplus b_j+a_j\oplus b_i$,略微思考不难得出以下结论：</p>
+<p>设：$x[k]$表示$x$用二进制表示，从小到大的第$k$个二进制位上的数字</p>
+<p>我们找到最大的$k$使得$a_i[k]\neq a_j[k]$且$b_i[k]\neq b_j[k]$，那么</p>
+<p>$a_i\oplus b_i+a_j\oplus b_j&lt;a_i\oplus b_j+a_j\oplus b_i\leftrightarrow a_i[k]=b_i[k]$且$a_j[k]=b_j[k]$</p>
+<p>困境：根据$wikipedia$上广义排序不等式的表述：</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Rearrangement_inequality" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Rearrangement_inequality</a> generalization]</p>
+<p>上面我们得到的关于相邻交换的结论，不满足构建所需$&lt;$的性质，因此此种尝试陷入艰辛</p>
+<p>问题2：我们转而求其次，试图解决以下问题：给定$A,B$两个$n$项数组，试判断以下结论是否正确：</p>
+<p>不管将$B$如何打乱，$\sum_{i=1}^na_i\oplus b_{p_i}&gt;\sum_{i=1}^na_i\oplus b_i$</p>
+<p>（未解决）</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/30/暑期训练队内补题领锅大全/" rel="next" title="暑期训练队内补题领锅大全">
+                <i class="fa fa-chevron-left"></i> 暑期训练队内补题领锅大全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -627,6 +732,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -642,6 +751,8 @@
 
   
 
+
+  
 
 
   
