@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="hdmmblz异闻录">
 <meta property="og:description" content="$min_{25}$筛专题 本文内容较多。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-10T17:01:54.649Z">
+<meta property="og:updated_time" content="2019-07-10T17:04:03.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="min_25筛x学习笔记与相关题目汇总">
 <meta name="twitter:description" content="$min_{25}$筛专题 本文内容较多。">
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-11 01:01:54" itemprop="dateModified" datetime="2019-07-11T01:01:54+08:00">2019-07-11</time>
+                <time title="修改时间：2019-07-11 01:04:03" itemprop="dateModified" datetime="2019-07-11T01:04:03+08:00">2019-07-11</time>
               
             
           </span>
@@ -546,7 +546,7 @@
 <p>求$g$前缀和，$n\leq10^{10}$</p>
 <p>直接按照第三个条件容斥一下，定义$G(x)=[f(x)=1]\cup[\exists i\leq m,p_i|x]$</p>
 <p>则所求为$\sum_{i=1}^n G(i)+\lfloor\frac{n}{b}\rfloor-\sum_{i=1}^{\lfloor\frac{n}{b}\rfloor}G(ib)$</p>
-<p>求$G$的前缀和我们可以变成在求$S$时把$S$分成$S(n,j)[0/1][0/1]$表示第一个条件是否满足，第二个条件是否满足的数字个数，然后一样地进行$S$的递归求解即可，至于求后半部分$G(ib)$的前缀和，发现把$b$质因子分解后，相当于在某些特定质因子的某些特定次数上$f(p_i^{c_j})$的值变化了，由于开始的$a$数组只有$logn$个值，每个$b$的质因子最多影响$logn$个$f(p^c)$的位置，也就是说存一张$O(log^2nloglogb)$的关于$f(p^c)$的表即可，这就是经典的特定质因子特殊贡献，套用上面模型求解即可。</p>
+<p>求$G$的前缀和我们可以变成在求$S$时把$S$分成$S(n,j)[0/1][0/1]$表示第一个条件是否满足，第二个条件是否满足的数字个数，然后一样地进行$S$的递归求解即可，至于求后半部分$G(ib)$的前缀和，发现把$b$质因子分解后，相当于在某些特定质因子的某些特定次数上$f(p_i^{c_j})$的值变化了，由于开始的$a$数组只有$logn$个值，每个$b$的质因子最多影响$logn$个$f(p^c)$的位置，也就是说存一张$O(lognloglogb)$的关于$f(p^c)$的表即可，这就是经典的特定质因子特殊贡献，套用上面模型求解即可。</p>
 
       
     </div>
